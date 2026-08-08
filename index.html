@@ -7,1508 +7,1099 @@
 <title>The Nitin Shop</title>
 
 <style>
-
-/* =========================
-   BASIC
-========================= */
-
 *{
-    box-sizing:border-box;
+  box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+  scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
-    background:#faf6ec;
-    color:#1f2a1f;
-    font-family:Arial, Helvetica, sans-serif;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#faf6ec;
+  color:#1f2a1f;
 }
 
-
-/* =========================
-   TOP BAR
-========================= */
-
+/* TOP BAR */
 .topbar{
-    position:sticky;
-    top:0;
-    z-index:100;
-
-    background:#123527;
-    color:white;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:12px 20px;
-
-    box-shadow:0 3px 15px rgba(0,0,0,0.2);
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#123527;
+  color:white;
+  padding:12px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
-.brand-badge{
-    width:40px;
-    height:40px;
-
-    border-radius:50%;
-
-    background:#e8a33d;
-    color:#123527;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:20px;
-    font-weight:bold;
+.logo{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:#e8a33d;
+  color:#123527;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-size:20px;
 }
 
-.brand-name{
-    font-size:19px;
-    font-weight:bold;
+.shop-name{
+  font-size:19px;
+  font-weight:bold;
 }
 
-.brand-tag{
-    font-size:11px;
-    color:#d6dccb;
-    margin-top:3px;
+.tagline{
+  font-size:11px;
+  color:#d6dccb;
 }
 
-
-/* =========================
-   CART BUTTON
-========================= */
-
-.cart-btn{
-    position:relative;
-
-    width:44px;
-    height:44px;
-
-    border:0;
-    border-radius:50%;
-
-    background:#e8a33d;
-    color:#123527;
-
-    font-size:20px;
-    cursor:pointer;
+.cart-button{
+  position:relative;
+  border:none;
+  background:#e8a33d;
+  color:#123527;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  font-size:20px;
+  cursor:pointer;
 }
 
 .cart-count{
-    position:absolute;
-
-    top:-5px;
-    right:-5px;
-
-    min-width:19px;
-    height:19px;
-
-    padding:0 4px;
-
-    border-radius:50%;
-
-    background:#c0432b;
-    color:white;
-
-    font-size:11px;
-    font-weight:bold;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:#c0432b;
+  color:white;
+  border-radius:50%;
+  min-width:19px;
+  height:19px;
+  font-size:11px;
+  display:none;
+  align-items:center;
+  justify-content:center;
 }
 
-
-/* =========================
-   HERO
-========================= */
-
+/* HERO */
 .hero{
+  min-height:75vh;
+  display:flex;
+  align-items:flex-end;
 
-    min-height:78vh;
-
-    display:flex;
-    align-items:flex-end;
-
-    background-image:
-        linear-gradient(
-            180deg,
-            rgba(18,53,39,0.05),
-            rgba(18,53,39,0.88)
-        ),
-        url("shop.jpg");
-
-    background-size:cover;
-    background-position:center;
-
-    background-repeat:no-repeat;
+  background:
+    linear-gradient(
+      rgba(18,53,39,0.25),
+      rgba(18,53,39,0.88)
+    ),
+    url("https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg")
+    center/cover no-repeat;
 }
 
-.hero-inner{
-    width:100%;
-    max-width:750px;
-
-    padding:50px 25px 45px;
-
-    color:white;
+.hero-content{
+  padding:50px 22px;
+  color:white;
+  max-width:700px;
 }
 
-.hero-label{
-    display:inline-block;
-
-    background:#e8a33d;
-    color:#123527;
-
-    padding:7px 14px;
-
-    border-radius:30px;
-
-    font-size:12px;
-    font-weight:bold;
-
-    text-transform:uppercase;
+.hero-badge{
+  display:inline-block;
+  background:#e8a33d;
+  color:#123527;
+  padding:7px 13px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
 }
 
 .hero h1{
-    font-family:Georgia,serif;
-
-    font-size:clamp(40px,7vw,64px);
-
-    line-height:1.05;
-
-    margin:18px 0 0;
-
-    text-shadow:0 4px 15px rgba(0,0,0,0.4);
+  font-family:Georgia,serif;
+  font-size:clamp(38px,8vw,62px);
+  line-height:1.05;
+  margin:15px 0;
 }
 
 .hero p{
-    max-width:520px;
-
-    font-size:17px;
-    line-height:1.5;
-
-    color:#eee;
-
-    margin:18px 0 25px;
+  font-size:17px;
+  line-height:1.5;
+  max-width:500px;
+  color:#eee;
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
-.buttons{
-    display:flex;
-    gap:12px;
-    flex-wrap:wrap;
+.shop-btn{
+  display:inline-block;
+  margin-top:10px;
+  padding:14px 25px;
+  border-radius:30px;
+  background:#e8a33d;
+  color:#123527;
+  text-decoration:none;
+  font-weight:bold;
 }
 
-.btn{
-    border:0;
-
-    padding:14px 25px;
-
-    border-radius:30px;
-
-    font-weight:bold;
-    font-size:15px;
-
-    cursor:pointer;
-
-    text-decoration:none;
-
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+/* PRODUCTS */
+.products-section{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
 }
 
-.btn-primary{
-    background:#e8a33d;
-    color:#123527;
+.heading{
+  text-align:center;
+  margin-bottom:35px;
 }
 
-.btn-primary:hover{
-    background:#c9821f;
+.heading small{
+  color:#c9821f;
+  font-weight:bold;
+  text-transform:uppercase;
+  letter-spacing:1px;
 }
 
-.btn-outline{
-    border:2px solid white;
-    color:white;
-    background:transparent;
+.heading h2{
+  font-family:Georgia,serif;
+  font-size:36px;
+  color:#123527;
+  margin:8px 0;
 }
 
-
-/* =========================
-   PRODUCTS SECTION
-========================= */
-
-.section{
-    max-width:1100px;
-
-    margin:auto;
-
-    padding:60px 20px;
+.heading p{
+  color:#666;
 }
 
-.section-head{
-    text-align:center;
-
-    margin-bottom:35px;
-}
-
-.kicker{
-    color:#c9821f;
-
-    font-size:12px;
-    font-weight:bold;
-
-    letter-spacing:2px;
-
-    text-transform:uppercase;
-}
-
-.section-head h2{
-    font-family:Georgia,serif;
-
-    font-size:36px;
-
-    color:#123527;
-
-    margin:8px 0;
-}
-
-.section-head p{
-    color:#666;
-
-    font-size:15px;
-}
-
-
-/* =========================
-   PRODUCT GRID
-========================= */
-
+/* PRODUCT GRID */
 .products{
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(240px,1fr));
-
-    gap:22px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
 }
 
-
-/* =========================
-   PRODUCT CARD
-========================= */
-
-.product-card{
-
-    background:white;
-
-    border-radius:15px;
-
-    overflow:hidden;
-
-    border:1px solid rgba(31,42,31,0.12);
-
-    box-shadow:
-        0 10px 30px rgba(18,53,39,0.12);
-
-    display:flex;
-    flex-direction:column;
+.product{
+  background:white;
+  border-radius:15px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+  border:1px solid rgba(0,0,0,.1);
 }
 
 .product-image{
-
-    height:220px;
-
-    background:#eee;
-
-    overflow:hidden;
-}
-
-.product-image img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    transition:0.3s;
-}
-
-.product-card:hover img{
-    transform:scale(1.05);
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  display:block;
 }
 
 .product-info{
-    padding:18px;
-
-    display:flex;
-    flex-direction:column;
-
-    gap:10px;
+  padding:18px;
 }
 
-.product-name{
-
-    font-size:19px;
-
-    font-weight:bold;
-
-    color:#123527;
+.product-info h3{
+  margin:0 0 8px;
+  color:#123527;
+  font-size:20px;
 }
 
-.product-price{
-
-    font-size:22px;
-
-    font-weight:bold;
-
-    color:#c0432b;
+.price{
+  color:#c0432b;
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:14px;
 }
 
-.add-btn{
-
-    margin-top:5px;
-
-    width:100%;
-
-    border:0;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    background:#1f4d3a;
-    color:white;
-
-    font-weight:bold;
-
-    cursor:pointer;
+.add-button{
+  width:100%;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  background:#1f4d3a;
+  color:white;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-.add-btn:hover{
-    background:#123527;
+.add-button:hover{
+  background:#123527;
 }
 
-
-/* =========================
-   ABOUT
-========================= */
-
+/* ABOUT */
 .about{
-
-    background:#123527;
-
-    color:white;
-
-    text-align:center;
-
-    padding:50px 20px;
+  background:#123527;
+  color:white;
+  text-align:center;
+  padding:50px 20px;
 }
 
 .about h2{
-
-    font-family:Georgia,serif;
-
-    color:#e8a33d;
-
-    margin-top:0;
+  color:#e8a33d;
+  font-family:Georgia,serif;
 }
 
 .about p{
-
-    max-width:650px;
-
-    margin:auto;
-
-    line-height:1.6;
-
-    color:#d6dccb;
+  max-width:600px;
+  margin:auto;
+  line-height:1.6;
+  color:#ddd;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-
+/* FOOTER */
 footer{
-
-    text-align:center;
-
-    padding:30px 20px 100px;
-
-    background:#faf6ec;
-
-    color:#666;
-
-    font-size:13px;
+  text-align:center;
+  padding:30px 20px 80px;
+  background:#faf6ec;
+  color:#666;
 }
 
-.footer-name{
-
-    color:#123527;
-
-    font-size:16px;
-
-    font-weight:bold;
-
-    margin-bottom:5px;
+footer strong{
+  color:#123527;
 }
 
-
-/* =========================
-   FLOATING WHATSAPP
-========================= */
-
+/* FLOATING WHATSAPP */
 .whatsapp{
-
-    position:fixed;
-
-    left:20px;
-    bottom:20px;
-
-    width:58px;
-    height:58px;
-
-    border-radius:50%;
-
-    background:#25D366;
-
-    color:white;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    font-size:28px;
-
-    text-decoration:none;
-
-    box-shadow:0 7px 20px rgba(0,0,0,0.25);
-
-    z-index:90;
+  position:fixed;
+  left:20px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#25D366;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:27px;
+  text-decoration:none;
+  z-index:90;
 }
 
-
-/* =========================
-   FLOATING CART
-========================= */
-
+/* FLOATING CART */
 .floating-cart{
-
-    position:fixed;
-
-    right:20px;
-    bottom:20px;
-
-    width:60px;
-    height:60px;
-
-    border:0;
-
-    border-radius:50%;
-
-    background:#e8a33d;
-
-    color:#123527;
-
-    font-size:25px;
-
-    cursor:pointer;
-
-    box-shadow:0 7px 20px rgba(0,0,0,0.25);
-
-    z-index:90;
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  border:none;
+  border-radius:50%;
+  background:#e8a33d;
+  font-size:25px;
+  cursor:pointer;
+  z-index:90;
 }
 
-
-/* =========================
-   OVERLAY
-========================= */
-
+/* CART */
 .overlay{
-
-    position:fixed;
-
-    inset:0;
-
-    background:rgba(0,0,0,0.45);
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:0.3s;
-
-    z-index:150;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.5);
+  display:none;
+  z-index:150;
 }
 
 .overlay.show{
-
-    opacity:1;
-
-    pointer-events:auto;
+  display:block;
 }
 
-
-/* =========================
-   CART DRAWER
-========================= */
-
-.drawer{
-
-    position:fixed;
-
-    top:0;
-    right:0;
-
-    width:100%;
-    max-width:430px;
-
-    height:100vh;
-
-    background:#faf6ec;
-
-    z-index:200;
-
-    transform:translateX(100%);
-
-    transition:0.3s;
-
-    display:flex;
-
-    flex-direction:column;
-
-    box-shadow:-10px 0 30px rgba(0,0,0,0.25);
+.cart{
+  position:fixed;
+  right:0;
+  top:0;
+  width:100%;
+  max-width:420px;
+  height:100%;
+  background:#faf6ec;
+  z-index:200;
+  transform:translateX(100%);
+  transition:.3s;
+  display:flex;
+  flex-direction:column;
 }
 
-.drawer.show{
-
-    transform:translateX(0);
+.cart.show{
+  transform:translateX(0);
 }
 
-.drawer-header{
-
-    background:#123527;
-
-    color:white;
-
-    padding:18px 20px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
+.cart-header{
+  background:#123527;
+  color:white;
+  padding:18px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.drawer-header h3{
-
-    margin:0;
-
-    font-family:Georgia,serif;
+.cart-header h2{
+  margin:0;
+  font-size:20px;
 }
 
 .close{
-
-    border:0;
-
-    background:none;
-
-    color:white;
-
-    font-size:24px;
-
-    cursor:pointer;
+  background:none;
+  border:none;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
 }
 
-
-/* =========================
-   CART BODY
-========================= */
-
-.cart-body{
-
-    flex:1;
-
-    overflow-y:auto;
-
-    padding:18px 20px;
+.cart-items{
+  flex:1;
+  overflow-y:auto;
+  padding:20px;
 }
 
 .empty{
-
-    text-align:center;
-
-    color:#777;
-
-    padding:50px 10px;
+  text-align:center;
+  color:#777;
+  padding:40px 10px;
 }
 
-
-/* =========================
-   CART ITEM
-========================= */
-
 .cart-item{
-
-    display:flex;
-
-    gap:12px;
-
-    padding:12px 0;
-
-    border-bottom:1px solid #ddd;
-
-    align-items:center;
+  display:flex;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #ddd;
 }
 
 .cart-item img{
-
-    width:60px;
-    height:60px;
-
-    object-fit:cover;
-
-    border-radius:9px;
+  width:60px;
+  height:60px;
+  object-fit:cover;
+  border-radius:8px;
 }
 
-.cart-info{
-
-    flex:1;
+.item-info{
+  flex:1;
 }
 
-.cart-name{
-
-    font-weight:bold;
-
-    color:#123527;
+.item-name{
+  font-weight:bold;
+  color:#123527;
 }
 
-.cart-price{
-
-    color:#c0432b;
-
-    font-weight:bold;
-
-    margin-top:3px;
+.item-price{
+  color:#c0432b;
+  margin-top:5px;
 }
 
 .quantity{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:7px;
-
-    margin-top:7px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:7px;
 }
 
 .quantity button{
-
-    width:26px;
-    height:26px;
-
-    border:1px solid #ccc;
-
-    background:white;
-
-    border-radius:5px;
-
-    cursor:pointer;
-
-    font-weight:bold;
+  width:25px;
+  height:25px;
+  border:1px solid #ccc;
+  background:white;
+  border-radius:5px;
+  cursor:pointer;
 }
 
-.quantity span{
-
-    min-width:20px;
-
-    text-align:center;
-
-    font-weight:bold;
-}
-
-.remove{
-
-    border:0;
-
-    background:none;
-
-    color:#c0432b;
-
-    font-size:12px;
-
-    cursor:pointer;
-
-    text-decoration:underline;
-
-    margin-top:4px;
-}
-
-
-/* =========================
-   CHECKOUT
-========================= */
-
-.checkout{
-
-    background:white;
-
-    border-top:1px solid #ddd;
-
-    padding:18px 20px;
+.cart-bottom{
+  background:white;
+  padding:18px 20px;
+  border-top:1px solid #ddd;
 }
 
 .total{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    color:#123527;
-
-    margin-bottom:15px;
+  display:flex;
+  justify-content:space-between;
+  font-size:20px;
+  font-weight:bold;
+  color:#123527;
+  margin-bottom:15px;
 }
 
-.checkout input,
-.checkout textarea{
-
-    width:100%;
-
-    padding:11px;
-
-    margin-bottom:10px;
-
-    border:1px solid #ddd;
-
-    border-radius:8px;
-
-    font-family:Arial;
+.order-input{
+  width:100%;
+  padding:11px;
+  margin-bottom:9px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:14px;
 }
 
-.checkout textarea{
-
-    resize:none;
-
-    height:75px;
+.order-button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:9px;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
 }
 
-.order-btn{
+/* MOBILE */
+@media(max-width:700px){
 
-    width:100%;
+  .products{
+    grid-template-columns:1fr;
+  }
 
-    border:0;
+  .product-image{
+    height:230px;
+  }
 
-    padding:14px;
+  .products-section{
+    padding:45px 16px;
+  }
 
-    background:#25D366;
+  .heading h2{
+    font-size:30px;
+  }
 
-    color:white;
-
-    border-radius:9px;
-
-    font-weight:bold;
-
-    font-size:15px;
-
-    cursor:pointer;
+  .hero{
+    min-height:70vh;
+  }
 }
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    .topbar{
-        padding:10px 14px;
-    }
-
-    .brand-name{
-        font-size:16px;
-    }
-
-    .hero{
-        min-height:75vh;
-    }
-
-    .hero-inner{
-        padding:35px 18px;
-    }
-
-    .hero h1{
-        font-size:42px;
-    }
-
-    .section{
-        padding:45px 16px;
-    }
-
-    .section-head h2{
-        font-size:30px;
-    }
-
-    .products{
-        grid-template-columns:1fr;
-    }
-
-    .drawer{
-        max-width:100%;
-    }
-
-}
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================
-     TOP BAR
-========================= -->
-
+<!-- TOP BAR -->
 <header class="topbar">
 
-    <div class="brand">
+  <div class="brand">
 
-        <div class="brand-badge">
-            N
-        </div>
+    <div class="logo">N</div>
 
-        <div>
+    <div>
+      <div class="shop-name">
+        The Nitin Shop
+      </div>
 
-            <div class="brand-name">
-                The Nitin Shop
-            </div>
-
-            <div class="brand-tag">
-                Fresh Finds, Best Prices
-            </div>
-
-        </div>
-
+      <div class="tagline">
+        Fresh Finds, Best Prices
+      </div>
     </div>
 
+  </div>
 
-    <button
-        class="cart-btn"
-        onclick="openCart()"
-    >
-
-        🛒
-
-        <span
-            class="cart-count"
-            id="topCartCount"
-            style="display:none;"
-        >
-            0
-        </span>
-
-    </button>
+  <button class="cart-button" onclick="openCart()">
+    🛒
+    <span class="cart-count" id="topCount">0</span>
+  </button>
 
 </header>
 
 
+<!-- HERO -->
+<section class="hero">
 
-<!-- =========================
-     HERO
-========================= -->
+  <div class="hero-content">
 
-<section class="hero" id="home">
+    <span class="hero-badge">
+      WELCOME TO OUR SHOP
+    </span>
 
-    <div class="hero-inner">
+    <h1>
+      Fresh Finds,<br>
+      Best Prices.
+    </h1>
 
-        <span class="hero-label">
-            Local & Trusted
-        </span>
+    <p>
+      Discover our products and choose your favourites
+      at simple and affordable prices.
+    </p>
 
-        <h1>
-            Fresh Finds,<br>
-            Best Prices.
-        </h1>
+    <a href="#products" class="shop-btn">
+      Shop Now ↓
+    </a>
 
-        <p>
-            Everyday essentials, quality products,
-            and great prices — all in one place.
-        </p>
-
-
-        <div class="buttons">
-
-            <button
-                class="btn btn-primary"
-                onclick="scrollToProducts()"
-            >
-                Shop Now ↓
-            </button>
-
-
-            <a
-                class="btn btn-outline"
-                href="https://wa.me/918546068921"
-                target="_blank"
-            >
-                Chat on WhatsApp
-            </a>
-
-        </div>
-
-    </div>
+  </div>
 
 </section>
 
 
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
 
-<!-- =========================
-     PRODUCTS
-========================= -->
+  <div class="heading">
 
-<section
-    class="section"
-    id="products"
->
-
-    <div class="section-head">
-
-        <div class="kicker">
-            This Week's Picks
-        </div>
-
-        <h2>
-            Our Products
-        </h2>
-
-        <p>
-            Choose your favourite product and add it to your cart.
-        </p>
-
-    </div>
-
-
-    <div
-        class="products"
-        id="productsContainer"
-    ></div>
-
-</section>
-
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="about">
+    <small>OUR COLLECTION</small>
 
     <h2>
-        Why Shop With Us?
+      Our Products
     </h2>
 
     <p>
-        Quality products, simple shopping and
-        friendly service. Choose your products,
-        add them to your cart and send your order
-        directly on WhatsApp.
+      Choose your favourite product and add it to your cart.
     </p>
+
+  </div>
+
+
+  <div class="products">
+
+    <!-- PRODUCT 1 -->
+    <div class="product">
+
+      <img
+        class="product-image"
+        src="https://i.ibb.co/vWTQXbc/17861787951256754822744863288316.jpg"
+        alt="Product 1"
+      >
+
+      <div class="product-info">
+
+        <h3>
+          Product 1
+        </h3>
+
+        <div class="price">
+          ₹1000
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(1)"
+        >
+          Add to Cart
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT 2 -->
+    <div class="product">
+
+      <img
+        class="product-image"
+        src="https://i.ibb.co/G3Pk5qDJ/17861772841075608297092550658361.jpg"
+        alt="Product 2"
+      >
+
+      <div class="product-info">
+
+        <h3>
+          Product 2
+        </h3>
+
+        <div class="price">
+          ₹3000
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(2)"
+        >
+          Add to Cart
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- PRODUCT 3 -->
+    <div class="product">
+
+      <img
+        class="product-image"
+        src="https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg"
+        alt="Product 3"
+      >
+
+      <div class="product-info">
+
+        <h3>
+          Product 3
+        </h3>
+
+        <div class="price">
+          ₹5000
+        </div>
+
+        <button
+          class="add-button"
+          onclick="addToCart(3)"
+        >
+          Add to Cart
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
+<!-- ABOUT -->
+<section class="about">
 
-<!-- =========================
-     FOOTER
-========================= -->
+  <h2>
+    Why Shop With Us?
+  </h2>
 
+  <p>
+    Quality products, simple prices and friendly service.
+    Choose your favourite product and place your order easily.
+  </p>
+
+</section>
+
+
+<!-- FOOTER -->
 <footer>
 
-    <div class="footer-name">
-        The Nitin Shop
-    </div>
+  <strong>
+    The Nitin Shop
+  </strong>
 
-    <div>
-        Fresh Finds, Best Prices
-    </div>
+  <br>
 
-    <div style="margin-top:8px;">
-        📧 nitinshrivastva57@gmail.com
-        &nbsp; | &nbsp;
-        📱 +91 85460 68921
-    </div>
+  Fresh Finds, Best Prices
 
-    <div style="margin-top:14px;">
-        © <span id="year"></span>
-        The Nitin Shop.
-        All rights reserved.
-    </div>
+  <br><br>
+
+  📧 nitinshrivastva57@gmail.com
+
+  <br>
+
+  📱 +91 85460 68921
+
+  <br><br>
+
+  © 2026 The Nitin Shop
 
 </footer>
 
 
-
-<!-- =========================
-     WHATSAPP
-========================= -->
-
+<!-- WHATSAPP -->
 <a
-    class="whatsapp"
-    href="https://wa.me/918546068921"
-    target="_blank"
-    aria-label="WhatsApp"
+  class="whatsapp"
+  href="https://wa.me/918546068921"
+  target="_blank"
 >
-    💬
+  ☎
 </a>
 
 
-
-<!-- =========================
-     FLOATING CART
-========================= -->
-
+<!-- FLOATING CART -->
 <button
-    class="floating-cart"
-    onclick="openCart()"
+  class="floating-cart"
+  onclick="openCart()"
 >
-
-    🛒
-
-    <span
-        class="cart-count"
-        id="floatCartCount"
-        style="display:none;"
-    >
-        0
-    </span>
-
+  🛒
 </button>
 
 
-
-<!-- =========================
-     OVERLAY
-========================= -->
-
+<!-- CART OVERLAY -->
 <div
-    class="overlay"
-    id="overlay"
-    onclick="closeCart()"
+  class="overlay"
+  id="overlay"
+  onclick="closeCart()"
 ></div>
 
 
-
-<!-- =========================
-     CART
-========================= -->
-
+<!-- CART -->
 <div
-    class="drawer"
-    id="drawer"
+  class="cart"
+  id="cart"
 >
 
-    <div class="drawer-header">
+  <div class="cart-header">
 
-        <h3>
-            Your Cart
-        </h3>
+    <h2>
+      Your Cart
+    </h2>
 
-        <button
-            class="close"
-            onclick="closeCart()"
-        >
-            ✕
-        </button>
+    <button
+      class="close"
+      onclick="closeCart()"
+    >
+      ✕
+    </button>
+
+  </div>
+
+
+  <div
+    class="cart-items"
+    id="cartItems"
+  >
+
+    <div class="empty">
+      Your cart is empty.
+      <br><br>
+      Add some products!
+    </div>
+
+  </div>
+
+
+  <div class="cart-bottom">
+
+    <div class="total">
+
+      <span>
+        Total
+      </span>
+
+      <span id="total">
+        ₹0
+      </span>
 
     </div>
 
 
-    <div
-        class="cart-body"
-        id="cartBody"
+    <input
+      class="order-input"
+      id="name"
+      placeholder="Your Name"
     >
 
-        <div
-            class="empty"
-            id="emptyCart"
-        >
-            Your cart is empty.
-            <br><br>
-            Add some products to get started!
-        </div>
-
-    </div>
-
-
-    <div
-        class="checkout"
-        id="checkout"
-        style="display:none;"
+    <input
+      class="order-input"
+      id="phone"
+      placeholder="Phone Number"
+      type="tel"
     >
 
-        <div class="total">
+    <input
+      class="order-input"
+      id="address"
+      placeholder="Address"
+    >
 
-            <span>
-                Total
-            </span>
+    <button
+      class="order-button"
+      onclick="sendOrder()"
+    >
+      Order on WhatsApp
+    </button>
 
-            <span id="cartTotal">
-                ₹0
-            </span>
-
-        </div>
-
-
-        <input
-            type="text"
-            id="customerName"
-            placeholder="Your Name"
-        >
-
-
-        <input
-            type="tel"
-            id="customerPhone"
-            placeholder="Phone Number"
-        >
-
-
-        <textarea
-            id="customerAddress"
-            placeholder="Delivery Address"
-        ></textarea>
-
-
-        <button
-            class="order-btn"
-            onclick="sendOrder()"
-        >
-            📲 Send Order on WhatsApp
-        </button>
-
-    </div>
+  </div>
 
 </div>
 
 
-
 <script>
 
-/* =====================================================
-   PRODUCT DATA
-===================================================== */
+/* PRODUCTS */
 
-const products = [
+const products = {
 
-    {
-        id:1,
+  1:{
+    name:"Product 1",
+    price:1000,
+    image:"https://i.ibb.co/vWTQXbc/17861787951256754822744863288316.jpg"
+  },
 
-        name:"Product 1",
+  2:{
+    name:"Product 2",
+    price:3000,
+    image:"https://i.ibb.co/G3Pk5qDJ/17861772841075608297092550658361.jpg"
+  },
 
-        price:1000,
+  3:{
+    name:"Product 3",
+    price:5000,
+    image:"https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg"
+  }
 
-        img:"https://i.ibb.co/vWTQXbc/17861787951256754822744863288316.jpg"
-    },
-
-
-    {
-        id:2,
-
-        name:"Product 2",
-
-        price:3000,
-
-        img:"https://i.ibb.co/G3Pk5qDJ/17861772841075608297092550658361.jpg"
-    },
+};
 
 
-    {
-        id:3,
-
-        name:"Product 3",
-
-        price:5000,
-
-        img:"https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg"
-    }
-
-];
-
-
-/* =====================================================
-   CART
-===================================================== */
+/* CART */
 
 let cart = {};
 
 
-/* =====================================================
-   ELEMENTS
-===================================================== */
-
-const productsContainer =
-    document.getElementById("productsContainer");
-
-const cartBody =
-    document.getElementById("cartBody");
-
-const checkout =
-    document.getElementById("checkout");
-
-const cartTotal =
-    document.getElementById("cartTotal");
-
-const topCartCount =
-    document.getElementById("topCartCount");
-
-const floatCartCount =
-    document.getElementById("floatCartCount");
-
-const drawer =
-    document.getElementById("drawer");
-
-const overlay =
-    document.getElementById("overlay");
-
-
-document.getElementById("year").textContent =
-    new Date().getFullYear();
-
-
-
-/* =====================================================
-   DISPLAY PRODUCTS
-===================================================== */
-
-function renderProducts(){
-
-    productsContainer.innerHTML = "";
-
-    products.forEach(product => {
-
-        const card =
-            document.createElement("div");
-
-        card.className = "product-card";
-
-
-        card.innerHTML = `
-
-            <div class="product-image">
-
-                <img
-                    src="${product.img}"
-                    alt="${product.name}"
-                >
-
-            </div>
-
-
-            <div class="product-info">
-
-                <div class="product-name">
-                    ${product.name}
-                </div>
-
-                <div class="product-price">
-                    ₹${product.price.toLocaleString("en-IN")}
-                </div>
-
-                <button
-                    class="add-btn"
-                    onclick="addToCart(${product.id})"
-                >
-                    Add to Cart
-                </button>
-
-            </div>
-
-        `;
-
-
-        productsContainer.appendChild(card);
-
-    });
-
-}
-
-
-
-/* =====================================================
-   ADD TO CART
-===================================================== */
+/* ADD TO CART */
 
 function addToCart(id){
 
-    if(cart[id]){
+  if(cart[id]){
+    cart[id]++;
+  }else{
+    cart[id]=1;
+  }
 
-        cart[id]++;
+  updateCart();
 
-    }else{
-
-        cart[id] = 1;
-
-    }
-
-    updateCart();
-
-    openCart();
-
+  openCart();
 }
 
 
+/* CHANGE QUANTITY */
 
-/* =====================================================
-   CHANGE QUANTITY
-===================================================== */
+function changeQuantity(id,change){
 
-function changeQuantity(id, amount){
+  if(!cart[id]){
+    return;
+  }
 
-    if(!cart[id]){
-        return;
-    }
+  cart[id] += change;
 
-    cart[id] += amount;
-
-
-    if(cart[id] <= 0){
-
-        delete cart[id];
-
-    }
-
-
-    updateCart();
-
-}
-
-
-
-/* =====================================================
-   REMOVE PRODUCT
-===================================================== */
-
-function removeFromCart(id){
-
+  if(cart[id] <= 0){
     delete cart[id];
+  }
 
-    updateCart();
-
+  updateCart();
 }
 
 
-
-/* =====================================================
-   UPDATE CART
-===================================================== */
+/* UPDATE CART */
 
 function updateCart(){
 
-    cartBody.innerHTML = "";
+  const cartItems =
+    document.getElementById("cartItems");
+
+  const totalElement =
+    document.getElementById("total");
+
+  const topCount =
+    document.getElementById("topCount");
 
 
-    const ids =
-        Object.keys(cart);
+  let total = 0;
+  let count = 0;
+
+  let html = "";
 
 
-    if(ids.length === 0){
+  for(let id in cart){
 
-        cartBody.innerHTML = `
+    const product = products[id];
+    const quantity = cart[id];
 
-            <div class="empty">
+    const itemTotal =
+      product.price * quantity;
 
-                Your cart is empty.
-
-                <br><br>
-
-                Add some products to get started!
-
-            </div>
-
-        `;
-
-        checkout.style.display = "none";
-
-        updateCartCount();
-
-        return;
-
-    }
+    total += itemTotal;
+    count += quantity;
 
 
-    let total = 0;
+    html += `
 
-    let totalItems = 0;
+      <div class="cart-item">
 
+        <img
+          src="${product.image}"
+          alt="${product.name}"
+        >
 
-    ids.forEach(id => {
+        <div class="item-info">
 
-        const product =
-            products.find(
-                p => p.id == id
-            );
+          <div class="item-name">
+            ${product.name}
+          </div>
 
+          <div class="item-price">
+            ₹${product.price} × ${quantity}
+          </div>
 
-        const quantity =
-            cart[id];
+          <div class="quantity">
 
-
-        const itemTotal =
-            product.price * quantity;
-
-
-        total += itemTotal;
-
-        totalItems += quantity;
-
-
-        const item =
-            document.createElement("div");
-
-        item.className = "cart-item";
-
-
-        item.innerHTML = `
-
-            <img
-                src="${product.img}"
-                alt="${product.name}"
+            <button
+              onclick="changeQuantity(${id},-1)"
             >
+              −
+            </button>
+
+            <span>
+              ${quantity}
+            </span>
+
+            <button
+              onclick="changeQuantity(${id},1)"
+            >
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    `;
+  }
 
 
-            <div class="cart-info">
+  if(count === 0){
 
-                <div class="cart-name">
-                    ${product.name}
-                </div>
+    html = `
 
-                <div class="cart-price">
-                    ₹${itemTotal.toLocaleString("en-IN")}
-                </div>
+      <div class="empty">
+
+        Your cart is empty.
+
+        <br><br>
+
+        Add some products!
+
+      </div>
+
+    `;
+
+    topCount.style.display="none";
+
+  }else{
+
+    topCount.style.display="flex";
+    topCount.textContent=count;
+
+  }
 
 
-                <div class="quantity">
+  cartItems.innerHTML = html;
 
-                    <button
-                        onclick="changeQuantity(${
+  totalElement.textContent =
+    "₹" + total;
+
+}
+
+
+/* OPEN CART */
+
+function openCart(){
+
+  document
+    .getElementById("cart")
+    .classList.add("show");
+
+  document
+    .getElementById("overlay")
+    .classList.add("show");
+
+}
+
+
+/* CLOSE CART */
+
+function closeCart(){
+
+  document
+    .getElementById("cart")
+    .classList.remove("show");
+
+  document
+    .getElementById("overlay")
+    .classList.remove("show");
+
+}
+
+
+/* WHATSAPP ORDER */
+
+function sendOrder(){
+
+  let items = "";
+
+  let total = 0;
+
+
+  for(let id in cart){
+
+    const product = products[id];
+
+    const quantity = cart[id];
+
+    const amount =
+      product.price * quantity;
+
+    total += amount;
+
+
+    items +=
+      product.name +
+      " x " +
+      quantity +
+      " = ₹" +
+      amount +
+      "%0A";
+
+  }
+
+
+  if(items === ""){
+
+    alert("Please add a product to cart first.");
+
+    return;
+
+  }
+
+
+  const name =
+    document.getElementById("name").value;
+
+  const phone =
+    document.getElementById("phone").value;
+
+  const address =
+    document.getElementById("address").value;
+
+
+  if(!name || !phone || !address){
+
+    alert("Please fill all delivery details.");
+
+    return;
+
+  }
+
+
+  const message =
+
+    "🛒 *The Nitin Shop Order*%0A%0A" +
+
+    "*Customer:* " +
+    name +
+    "%0A" +
+
+    "*Phone:* " +
+    phone +
+    "%0A" +
+
+    "*Address:* " +
+    address +
+    "%0A%0A" +
+
+    "*Products:*%0A" +
+
+    items +
+
+    "%0A*Total: ₹" +
+    total +
+    "*";
+
+
+  const whatsappURL =
+    "https://wa.me/918546068921?text=" +
+    message;
+
+
+  window.open(
+    whatsappURL,
+    "_blank"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
