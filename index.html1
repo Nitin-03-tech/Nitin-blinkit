@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Nitin Shop</title>
+
+<style>
+
+/* =========================
+   BASIC
+========================= */
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:#faf6ec;
+    color:#1f2a1f;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+    position:sticky;
+    top:0;
+    z-index:100;
+
+    background:#123527;
+    color:white;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:12px 20px;
+
+    box-shadow:0 3px 15px rgba(0,0,0,0.2);
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand-badge{
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    background:#e8a33d;
+    color:#123527;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:20px;
+    font-weight:bold;
+}
+
+.brand-name{
+    font-size:19px;
+    font-weight:bold;
+}
+
+.brand-tag{
+    font-size:11px;
+    color:#d6dccb;
+    margin-top:3px;
+}
+
+
+/* =========================
+   CART BUTTON
+========================= */
+
+.cart-btn{
+    position:relative;
+
+    width:44px;
+    height:44px;
+
+    border:0;
+    border-radius:50%;
+
+    background:#e8a33d;
+    color:#123527;
+
+    font-size:20px;
+    cursor:pointer;
+}
+
+.cart-count{
+    position:absolute;
+
+    top:-5px;
+    right:-5px;
+
+    min-width:19px;
+    height:19px;
+
+    padding:0 4px;
+
+    border-radius:50%;
+
+    background:#c0432b;
+    color:white;
+
+    font-size:11px;
+    font-weight:bold;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    min-height:78vh;
+
+    display:flex;
+    align-items:flex-end;
+
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(18,53,39,0.05),
+            rgba(18,53,39,0.88)
+        ),
+        url("shop.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    background-repeat:no-repeat;
+}
+
+.hero-inner{
+    width:100%;
+    max-width:750px;
+
+    padding:50px 25px 45px;
+
+    color:white;
+}
+
+.hero-label{
+    display:inline-block;
+
+    background:#e8a33d;
+    color:#123527;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+    font-weight:bold;
+
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-family:Georgia,serif;
+
+    font-size:clamp(40px,7vw,64px);
+
+    line-height:1.05;
+
+    margin:18px 0 0;
+
+    text-shadow:0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero p{
+    max-width:520px;
+
+    font-size:17px;
+    line-height:1.5;
+
+    color:#eee;
+
+    margin:18px 0 25px;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+
+    padding:14px 25px;
+
+    border-radius:30px;
+
+    font-weight:bold;
+    font-size:15px;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.btn-primary{
+    background:#e8a33d;
+    color:#123527;
+}
+
+.btn-primary:hover{
+    background:#c9821f;
+}
+
+.btn-outline{
+    border:2px solid white;
+    color:white;
+    background:transparent;
+}
+
+
+/* =========================
+   PRODUCTS SECTION
+========================= */
+
+.section{
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:60px 20px;
+}
+
+.section-head{
+    text-align:center;
+
+    margin-bottom:35px;
+}
+
+.kicker{
+    color:#c9821f;
+
+    font-size:12px;
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+}
+
+.section-head h2{
+    font-family:Georgia,serif;
+
+    font-size:36px;
+
+    color:#123527;
+
+    margin:8px 0;
+}
+
+.section-head p{
+    color:#666;
+
+    font-size:15px;
+}
+
+
+/* =========================
+   PRODUCT GRID
+========================= */
+
+.products{
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(240px,1fr));
+
+    gap:22px;
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(31,42,31,0.12);
+
+    box-shadow:
+        0 10px 30px rgba(18,53,39,0.12);
+
+    display:flex;
+    flex-direction:column;
+}
+
+.product-image{
+
+    height:220px;
+
+    background:#eee;
+
+    overflow:hidden;
+}
+
+.product-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:0.3s;
+}
+
+.product-card:hover img{
+    transform:scale(1.05);
+}
+
+.product-info{
+    padding:18px;
+
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+}
+
+.product-name{
+
+    font-size:19px;
+
+    font-weight:bold;
+
+    color:#123527;
+}
+
+.product-price{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#c0432b;
+}
+
+.add-btn{
+
+    margin-top:5px;
+
+    width:100%;
+
+    border:0;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    background:#1f4d3a;
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.add-btn:hover{
+    background:#123527;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+
+    background:#123527;
+
+    color:white;
+
+    text-align:center;
+
+    padding:50px 20px;
+}
+
+.about h2{
+
+    font-family:Georgia,serif;
+
+    color:#e8a33d;
+
+    margin-top:0;
+}
+
+.about p{
+
+    max-width:650px;
+
+    margin:auto;
+
+    line-height:1.6;
+
+    color:#d6dccb;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    text-align:center;
+
+    padding:30px 20px 100px;
+
+    background:#faf6ec;
+
+    color:#666;
+
+    font-size:13px;
+}
+
+.footer-name{
+
+    color:#123527;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+}
+
+
+/* =========================
+   FLOATING WHATSAPP
+========================= */
+
+.whatsapp{
+
+    position:fixed;
+
+    left:20px;
+    bottom:20px;
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:28px;
+
+    text-decoration:none;
+
+    box-shadow:0 7px 20px rgba(0,0,0,0.25);
+
+    z-index:90;
+}
+
+
+/* =========================
+   FLOATING CART
+========================= */
+
+.floating-cart{
+
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:60px;
+    height:60px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#e8a33d;
+
+    color:#123527;
+
+    font-size:25px;
+
+    cursor:pointer;
+
+    box-shadow:0 7px 20px rgba(0,0,0,0.25);
+
+    z-index:90;
+}
+
+
+/* =========================
+   OVERLAY
+========================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,0.45);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:0.3s;
+
+    z-index:150;
+}
+
+.overlay.show{
+
+    opacity:1;
+
+    pointer-events:auto;
+}
+
+
+/* =========================
+   CART DRAWER
+========================= */
+
+.drawer{
+
+    position:fixed;
+
+    top:0;
+    right:0;
+
+    width:100%;
+    max-width:430px;
+
+    height:100vh;
+
+    background:#faf6ec;
+
+    z-index:200;
+
+    transform:translateX(100%);
+
+    transition:0.3s;
+
+    display:flex;
+
+    flex-direction:column;
+
+    box-shadow:-10px 0 30px rgba(0,0,0,0.25);
+}
+
+.drawer.show{
+
+    transform:translateX(0);
+}
+
+.drawer-header{
+
+    background:#123527;
+
+    color:white;
+
+    padding:18px 20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.drawer-header h3{
+
+    margin:0;
+
+    font-family:Georgia,serif;
+}
+
+.close{
+
+    border:0;
+
+    background:none;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   CART BODY
+========================= */
+
+.cart-body{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:18px 20px;
+}
+
+.empty{
+
+    text-align:center;
+
+    color:#777;
+
+    padding:50px 10px;
+}
+
+
+/* =========================
+   CART ITEM
+========================= */
+
+.cart-item{
+
+    display:flex;
+
+    gap:12px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #ddd;
+
+    align-items:center;
+}
+
+.cart-item img{
+
+    width:60px;
+    height:60px;
+
+    object-fit:cover;
+
+    border-radius:9px;
+}
+
+.cart-info{
+
+    flex:1;
+}
+
+.cart-name{
+
+    font-weight:bold;
+
+    color:#123527;
+}
+
+.cart-price{
+
+    color:#c0432b;
+
+    font-weight:bold;
+
+    margin-top:3px;
+}
+
+.quantity{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-top:7px;
+}
+
+.quantity button{
+
+    width:26px;
+    height:26px;
+
+    border:1px solid #ccc;
+
+    background:white;
+
+    border-radius:5px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.quantity span{
+
+    min-width:20px;
+
+    text-align:center;
+
+    font-weight:bold;
+}
+
+.remove{
+
+    border:0;
+
+    background:none;
+
+    color:#c0432b;
+
+    font-size:12px;
+
+    cursor:pointer;
+
+    text-decoration:underline;
+
+    margin-top:4px;
+}
+
+
+/* =========================
+   CHECKOUT
+========================= */
+
+.checkout{
+
+    background:white;
+
+    border-top:1px solid #ddd;
+
+    padding:18px 20px;
+}
+
+.total{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    color:#123527;
+
+    margin-bottom:15px;
+}
+
+.checkout input,
+.checkout textarea{
+
+    width:100%;
+
+    padding:11px;
+
+    margin-bottom:10px;
+
+    border:1px solid #ddd;
+
+    border-radius:8px;
+
+    font-family:Arial;
+}
+
+.checkout textarea{
+
+    resize:none;
+
+    height:75px;
+}
+
+.order-btn{
+
+    width:100%;
+
+    border:0;
+
+    padding:14px;
+
+    background:#25D366;
+
+    color:white;
+
+    border-radius:9px;
+
+    font-weight:bold;
+
+    font-size:15px;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .topbar{
+        padding:10px 14px;
+    }
+
+    .brand-name{
+        font-size:16px;
+    }
+
+    .hero{
+        min-height:75vh;
+    }
+
+    .hero-inner{
+        padding:35px 18px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .section{
+        padding:45px 16px;
+    }
+
+    .section-head h2{
+        font-size:30px;
+    }
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .drawer{
+        max-width:100%;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     TOP BAR
+========================= -->
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <div class="brand-badge">
+            N
+        </div>
+
+        <div>
+
+            <div class="brand-name">
+                The Nitin Shop
+            </div>
+
+            <div class="brand-tag">
+                Fresh Finds, Best Prices
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        class="cart-btn"
+        onclick="openCart()"
+    >
+
+        🛒
+
+        <span
+            class="cart-count"
+            id="topCartCount"
+            style="display:none;"
+        >
+            0
+        </span>
+
+    </button>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-inner">
+
+        <span class="hero-label">
+            Local & Trusted
+        </span>
+
+        <h1>
+            Fresh Finds,<br>
+            Best Prices.
+        </h1>
+
+        <p>
+            Everyday essentials, quality products,
+            and great prices — all in one place.
+        </p>
+
+
+        <div class="buttons">
+
+            <button
+                class="btn btn-primary"
+                onclick="scrollToProducts()"
+            >
+                Shop Now ↓
+            </button>
+
+
+            <a
+                class="btn btn-outline"
+                href="https://wa.me/918546068921"
+                target="_blank"
+            >
+                Chat on WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PRODUCTS
+========================= -->
+
+<section
+    class="section"
+    id="products"
+>
+
+    <div class="section-head">
+
+        <div class="kicker">
+            This Week's Picks
+        </div>
+
+        <h2>
+            Our Products
+        </h2>
+
+        <p>
+            Choose your favourite product and add it to your cart.
+        </p>
+
+    </div>
+
+
+    <div
+        class="products"
+        id="productsContainer"
+    ></div>
+
+</section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about">
+
+    <h2>
+        Why Shop With Us?
+    </h2>
+
+    <p>
+        Quality products, simple shopping and
+        friendly service. Choose your products,
+        add them to your cart and send your order
+        directly on WhatsApp.
+    </p>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-name">
+        The Nitin Shop
+    </div>
+
+    <div>
+        Fresh Finds, Best Prices
+    </div>
+
+    <div style="margin-top:8px;">
+        📧 nitinshrivastva57@gmail.com
+        &nbsp; | &nbsp;
+        📱 +91 85460 68921
+    </div>
+
+    <div style="margin-top:14px;">
+        © <span id="year"></span>
+        The Nitin Shop.
+        All rights reserved.
+    </div>
+
+</footer>
+
+
+
+<!-- =========================
+     WHATSAPP
+========================= -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/918546068921"
+    target="_blank"
+    aria-label="WhatsApp"
+>
+    💬
+</a>
+
+
+
+<!-- =========================
+     FLOATING CART
+========================= -->
+
+<button
+    class="floating-cart"
+    onclick="openCart()"
+>
+
+    🛒
+
+    <span
+        class="cart-count"
+        id="floatCartCount"
+        style="display:none;"
+    >
+        0
+    </span>
+
+</button>
+
+
+
+<!-- =========================
+     OVERLAY
+========================= -->
+
+<div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+></div>
+
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<div
+    class="drawer"
+    id="drawer"
+>
+
+    <div class="drawer-header">
+
+        <h3>
+            Your Cart
+        </h3>
+
+        <button
+            class="close"
+            onclick="closeCart()"
+        >
+            ✕
+        </button>
+
+    </div>
+
+
+    <div
+        class="cart-body"
+        id="cartBody"
+    >
+
+        <div
+            class="empty"
+            id="emptyCart"
+        >
+            Your cart is empty.
+            <br><br>
+            Add some products to get started!
+        </div>
+
+    </div>
+
+
+    <div
+        class="checkout"
+        id="checkout"
+        style="display:none;"
+    >
+
+        <div class="total">
+
+            <span>
+                Total
+            </span>
+
+            <span id="cartTotal">
+                ₹0
+            </span>
+
+        </div>
+
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Your Name"
+        >
+
+
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="Phone Number"
+        >
+
+
+        <textarea
+            id="customerAddress"
+            placeholder="Delivery Address"
+        ></textarea>
+
+
+        <button
+            class="order-btn"
+            onclick="sendOrder()"
+        >
+            📲 Send Order on WhatsApp
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   PRODUCT DATA
+===================================================== */
+
+const products = [
+
+    {
+        id:1,
+
+        name:"Product 1",
+
+        price:1000,
+
+        img:"https://i.ibb.co/vWTQXbc/17861787951256754822744863288316.jpg"
+    },
+
+
+    {
+        id:2,
+
+        name:"Product 2",
+
+        price:3000,
+
+        img:"https://i.ibb.co/G3Pk5qDJ/17861772841075608297092550658361.jpg"
+    },
+
+
+    {
+        id:3,
+
+        name:"Product 3",
+
+        price:5000,
+
+        img:"https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg"
+    }
+
+];
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cart = {};
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const productsContainer =
+    document.getElementById("productsContainer");
+
+const cartBody =
+    document.getElementById("cartBody");
+
+const checkout =
+    document.getElementById("checkout");
+
+const cartTotal =
+    document.getElementById("cartTotal");
+
+const topCartCount =
+    document.getElementById("topCartCount");
+
+const floatCartCount =
+    document.getElementById("floatCartCount");
+
+const drawer =
+    document.getElementById("drawer");
+
+const overlay =
+    document.getElementById("overlay");
+
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+
+
+/* =====================================================
+   DISPLAY PRODUCTS
+===================================================== */
+
+function renderProducts(){
+
+    productsContainer.innerHTML = "";
+
+    products.forEach(product => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "product-card";
+
+
+        card.innerHTML = `
+
+            <div class="product-image">
+
+                <img
+                    src="${product.img}"
+                    alt="${product.name}"
+                >
+
+            </div>
+
+
+            <div class="product-info">
+
+                <div class="product-name">
+                    ${product.name}
+                </div>
+
+                <div class="product-price">
+                    ₹${product.price.toLocaleString("en-IN")}
+                </div>
+
+                <button
+                    class="add-btn"
+                    onclick="addToCart(${product.id})"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        `;
+
+
+        productsContainer.appendChild(card);
+
+    });
+
+}
+
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart(id){
+
+    if(cart[id]){
+
+        cart[id]++;
+
+    }else{
+
+        cart[id] = 1;
+
+    }
+
+    updateCart();
+
+    openCart();
+
+}
+
+
+
+/* =====================================================
+   CHANGE QUANTITY
+===================================================== */
+
+function changeQuantity(id, amount){
+
+    if(!cart[id]){
+        return;
+    }
+
+    cart[id] += amount;
+
+
+    if(cart[id] <= 0){
+
+        delete cart[id];
+
+    }
+
+
+    updateCart();
+
+}
+
+
+
+/* =====================================================
+   REMOVE PRODUCT
+===================================================== */
+
+function removeFromCart(id){
+
+    delete cart[id];
+
+    updateCart();
+
+}
+
+
+
+/* =====================================================
+   UPDATE CART
+===================================================== */
+
+function updateCart(){
+
+    cartBody.innerHTML = "";
+
+
+    const ids =
+        Object.keys(cart);
+
+
+    if(ids.length === 0){
+
+        cartBody.innerHTML = `
+
+            <div class="empty">
+
+                Your cart is empty.
+
+                <br><br>
+
+                Add some products to get started!
+
+            </div>
+
+        `;
+
+        checkout.style.display = "none";
+
+        updateCartCount();
+
+        return;
+
+    }
+
+
+    let total = 0;
+
+    let totalItems = 0;
+
+
+    ids.forEach(id => {
+
+        const product =
+            products.find(
+                p => p.id == id
+            );
+
+
+        const quantity =
+            cart[id];
+
+
+        const itemTotal =
+            product.price * quantity;
+
+
+        total += itemTotal;
+
+        totalItems += quantity;
+
+
+        const item =
+            document.createElement("div");
+
+        item.className = "cart-item";
+
+
+        item.innerHTML = `
+
+            <img
+                src="${product.img}"
+                alt="${product.name}"
+            >
+
+
+            <div class="cart-info">
+
+                <div class="cart-name">
+                    ${product.name}
+                </div>
+
+                <div class="cart-price">
+                    ₹${itemTotal.toLocaleString("en-IN")}
+                </div>
+
+
+                <div class="quantity">
+
+                    <button
+                        onclick="changeQuantity(${
