@@ -17,7 +17,7 @@ html{
 
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:#faf6ec;
   color:#1f2a1f;
 }
@@ -91,7 +91,9 @@ body{
   justify-content:center;
 }
 
-/* HERO */
+
+/* HERO - NO WATCH IMAGE */
+
 .hero{
   min-height:75vh;
   display:flex;
@@ -99,11 +101,11 @@ body{
 
   background:
     linear-gradient(
-      rgba(18,53,39,0.25),
-      rgba(18,53,39,0.88)
-    ),
-    url("https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg")
-    center/cover no-repeat;
+      rgba(18,53,39,.35),
+      rgba(18,53,39,.95)
+    );
+
+  background-color:#123527;
 }
 
 .hero-content{
@@ -147,7 +149,9 @@ body{
   font-weight:bold;
 }
 
+
 /* PRODUCTS */
+
 .products-section{
   max-width:1100px;
   margin:auto;
@@ -177,7 +181,6 @@ body{
   color:#666;
 }
 
-/* PRODUCT GRID */
 .products{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -232,7 +235,9 @@ body{
   background:#123527;
 }
 
+
 /* ABOUT */
+
 .about{
   background:#123527;
   color:white;
@@ -252,7 +257,9 @@ body{
   color:#ddd;
 }
 
+
 /* FOOTER */
+
 footer{
   text-align:center;
   padding:30px 20px 80px;
@@ -264,7 +271,9 @@ footer strong{
   color:#123527;
 }
 
-/* FLOATING WHATSAPP */
+
+/* WHATSAPP */
+
 .whatsapp{
   position:fixed;
   left:20px;
@@ -282,7 +291,9 @@ footer strong{
   z-index:90;
 }
 
+
 /* FLOATING CART */
+
 .floating-cart{
   position:fixed;
   right:20px;
@@ -297,7 +308,9 @@ footer strong{
   z-index:90;
 }
 
+
 /* CART */
+
 .overlay{
   position:fixed;
   inset:0;
@@ -422,6 +435,44 @@ footer strong{
   margin-bottom:15px;
 }
 
+
+/* DELIVERY */
+
+.delivery-title{
+  color:#123527;
+  font-size:15px;
+  font-weight:bold;
+  margin:12px 0 8px;
+}
+
+.delivery-option{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:9px 10px;
+  margin-bottom:7px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  background:#fafafa;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.delivery-option input{
+  accent-color:#123527;
+}
+
+.delivery-charge{
+  display:flex;
+  justify-content:space-between;
+  color:#666;
+  font-size:14px;
+  margin:8px 0 12px;
+}
+
+
+/* INPUTS */
+
 .order-input{
   width:100%;
   padding:11px;
@@ -430,6 +481,9 @@ footer strong{
   border-radius:8px;
   font-size:14px;
 }
+
+
+/* BUTTONS */
 
 .order-button{
   width:100%;
@@ -443,7 +497,95 @@ footer strong{
   cursor:pointer;
 }
 
+.payment-button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:9px;
+  background:#123527;
+  color:white;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+
+/* PAYMENT */
+
+.payment-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.65);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:500;
+  padding:20px;
+}
+
+.payment-modal.show{
+  display:flex;
+}
+
+.payment-box{
+  background:#faf6ec;
+  width:100%;
+  max-width:400px;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+}
+
+.payment-box h2{
+  color:#123527;
+}
+
+.payment-total{
+  font-size:25px;
+  font-weight:bold;
+  color:#c0432b;
+  margin:15px 0 20px;
+}
+
+.payment-option{
+  width:100%;
+  padding:13px;
+  margin:7px 0;
+  border:1px solid #ddd;
+  border-radius:9px;
+  background:white;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:bold;
+}
+
+.demo-pay{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  border:none;
+  border-radius:9px;
+  background:#25D366;
+  color:white;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.close-payment{
+  width:100%;
+  padding:11px;
+  margin-top:8px;
+  border:none;
+  background:none;
+  color:#666;
+  cursor:pointer;
+}
+
+
 /* MOBILE */
+
 @media(max-width:700px){
 
   .products{
@@ -469,635 +611,964 @@ footer strong{
 </style>
 </head>
 
+
 <body>
 
+
 <!-- TOP BAR -->
+
 <header class="topbar">
 
-  <div class="brand">
+<div class="brand">
 
-    <div class="logo">N</div>
+<div class="logo">
+N
+</div>
 
-    <div>
-      <div class="shop-name">
-        The Nitin Shop
-      </div>
+<div>
 
-      <div class="tagline">
-        Fresh Finds, Best Prices
-      </div>
-    </div>
+<div class="shop-name">
+The Nitin Shop
+</div>
 
-  </div>
+<div class="tagline">
+Fresh Finds, Best Prices
+</div>
 
-  <button class="cart-button" onclick="openCart()">
-    🛒
-    <span class="cart-count" id="topCount">0</span>
-  </button>
+</div>
+
+</div>
+
+
+<button
+class="cart-button"
+onclick="openCart()"
+>
+
+🛒
+
+<span
+class="cart-count"
+id="topCount"
+>
+0
+</span>
+
+</button>
 
 </header>
 
 
+
 <!-- HERO -->
+
 <section class="hero">
 
-  <div class="hero-content">
+<div class="hero-content">
 
-    <span class="hero-badge">
-      WELCOME TO OUR SHOP
-    </span>
+<span class="hero-badge">
+WELCOME TO OUR SHOP
+</span>
 
-    <h1>
-      Fresh Finds,<br>
-      Best Prices.
-    </h1>
+<h1>
+Fresh Finds,<br>
+Best Prices.
+</h1>
 
-    <p>
-      Discover our products and choose your favourites
-      at simple and affordable prices.
-    </p>
+<p>
+Discover our products and choose your favourites
+at simple and affordable prices.
+</p>
 
-    <a href="#products" class="shop-btn">
-      Shop Now ↓
-    </a>
+<a
+href="#products"
+class="shop-btn"
+>
+Shop Now ↓
+</a>
 
-  </div>
+</div>
 
 </section>
+
 
 
 <!-- PRODUCTS -->
-<section class="products-section" id="products">
 
-  <div class="heading">
+<section
+class="products-section"
+id="products"
+>
 
-    <small>OUR COLLECTION</small>
+<div class="heading">
 
-    <h2>
-      Our Products
-    </h2>
+<small>
+OUR COLLECTION
+</small>
 
-    <p>
-      Choose your favourite product and add it to your cart.
-    </p>
+<h2>
+Our Products
+</h2>
 
-  </div>
+<p>
+Choose your favourite product and add it to your cart.
+</p>
 
-
-  <div class="products">
-
-    <!-- PRODUCT 1 -->
-    <div class="product">
-
-      <img
-        class="product-image"
-        src="https://i.ibb.co/vWTQXbc/17861787951256754822744863288316.jpg"
-        alt="Product 1"
-      >
-
-      <div class="product-info">
-
-        <h3>
-          Product 1
-        </h3>
-
-        <div class="price">
-          ₹1000
-        </div>
-
-        <button
-          class="add-button"
-          onclick="addToCart(1)"
-        >
-          Add to Cart
-        </button>
-
-      </div>
-
-    </div>
+</div>
 
 
-    <!-- PRODUCT 2 -->
-    <div class="product">
-
-      <img
-        class="product-image"
-        src="https://i.ibb.co/G3Pk5qDJ/17861772841075608297092550658361.jpg"
-        alt="Product 2"
-      >
-
-      <div class="product-info">
-
-        <h3>
-          Product 2
-        </h3>
-
-        <div class="price">
-          ₹3000
-        </div>
-
-        <button
-          class="add-button"
-          onclick="addToCart(2)"
-        >
-          Add to Cart
-        </button>
-
-      </div>
-
-    </div>
+<div class="products">
 
 
-    <!-- PRODUCT 3 -->
-    <div class="product">
+<!-- PRODUCT 1 -->
 
-      <img
-        class="product-image"
-        src="https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg"
-        alt="Product 3"
-      >
+<div class="product">
 
-      <div class="product-info">
+<img
+class="product-image"
+src="https://i.ibb.co/vWTQXbc/17861787951256754822744863288316.jpg"
+alt="Product 1"
+>
 
-        <h3>
-          Product 3
-        </h3>
+<div class="product-info">
 
-        <div class="price">
-          ₹5000
-        </div>
+<h3>
+Product 1
+</h3>
 
-        <button
-          class="add-button"
-          onclick="addToCart(3)"
-        >
-          Add to Cart
-        </button>
+<div class="price">
+₹1000
+</div>
 
-      </div>
+<button
+class="add-button"
+onclick="addToCart(1)"
+>
+Add to Cart
+</button>
 
-    </div>
+</div>
 
-  </div>
+</div>
+
+
+
+<!-- PRODUCT 2 -->
+
+<div class="product">
+
+<img
+class="product-image"
+src="https://i.ibb.co/G3Pk5qDJ/17861772841075608297092550658361.jpg"
+alt="Product 2"
+>
+
+<div class="product-info">
+
+<h3>
+Product 2
+</h3>
+
+<div class="price">
+₹3000
+</div>
+
+<button
+class="add-button"
+onclick="addToCart(2)"
+>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product">
+
+<img
+class="product-image"
+src="https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg"
+alt="Product 3"
+>
+
+<div class="product-info">
+
+<h3>
+Product 3
+</h3>
+
+<div class="price">
+₹5000
+</div>
+
+<button
+class="add-button"
+onclick="addToCart(3)"
+>
+Add to Cart
+</button>
+
+</div>
+
+</div>
+
+</div>
 
 </section>
+
 
 
 <!-- ABOUT -->
+
 <section class="about">
 
-  <h2>
-    Why Shop With Us?
-  </h2>
+<h2>
+Why Shop With Us?
+</h2>
 
-  <p>
-    Quality products, simple prices and friendly service.
-    Choose your favourite product and place your order easily.
-  </p>
+<p>
+Quality products, simple prices and friendly service.
+Choose your favourite product and place your order easily.
+</p>
 
 </section>
 
 
+
 <!-- FOOTER -->
+
 <footer>
 
-  <strong>
-    The Nitin Shop
-  </strong>
+<strong>
+The Nitin Shop
+</strong>
 
-  <br>
+<br>
 
-  Fresh Finds, Best Prices
+Fresh Finds, Best Prices
 
-  <br><br>
+<br><br>
 
-  📧 nitinshrivastva57@gmail.com
+📧 nitinshrivastva57@gmail.com
 
-  <br>
+<br>
 
-  📱 +91 85460 68921
+📱 +91 85460 68921
 
-  <br><br>
+<br><br>
 
-  © 2026 The Nitin Shop
+© 2026 The Nitin Shop
 
 </footer>
 
 
+
 <!-- WHATSAPP -->
+
 <a
-  class="whatsapp"
-  href="https://wa.me/918546068921"
-  target="_blank"
+class="whatsapp"
+href="https://wa.me/918546068921"
+target="_blank"
 >
-  ☎
+☎
 </a>
 
 
+
 <!-- FLOATING CART -->
+
 <button
-  class="floating-cart"
-  onclick="openCart()"
+class="floating-cart"
+onclick="openCart()"
 >
-  🛒
+🛒
 </button>
 
 
+
 <!-- CART OVERLAY -->
+
 <div
-  class="overlay"
-  id="overlay"
-  onclick="closeCart()"
+class="overlay"
+id="overlay"
+onclick="closeCart()"
 ></div>
 
 
+
 <!-- CART -->
+
 <div
-  class="cart"
-  id="cart"
+class="cart"
+id="cart"
 >
 
-  <div class="cart-header">
+<div class="cart-header">
 
-    <h2>
-      Your Cart
-    </h2>
+<h2>
+Your Cart
+</h2>
 
-    <button
-      class="close"
-      onclick="closeCart()"
-    >
-      ✕
-    </button>
-
-  </div>
-
-
-  <div
-    class="cart-items"
-    id="cartItems"
-  >
-
-    <div class="empty">
-      Your cart is empty.
-      <br><br>
-      Add some products!
-    </div>
-
-  </div>
-
-
-  <div class="cart-bottom">
-
-    <div class="total">
-
-      <span>
-        Total
-      </span>
-
-      <span id="total">
-        ₹0
-      </span>
-
-    </div>
-
-
-    <input
-      class="order-input"
-      id="name"
-      placeholder="Your Name"
-    >
-
-    <input
-      class="order-input"
-      id="phone"
-      placeholder="Phone Number"
-      type="tel"
-    >
-
-    <input
-      class="order-input"
-      id="address"
-      placeholder="Address"
-    >
-
-    <button
-      class="order-button"
-      onclick="sendOrder()"
-    >
-      Order on WhatsApp
-    </button>
-
-  </div>
+<button
+class="close"
+onclick="closeCart()"
+>
+✕
+</button>
 
 </div>
+
+
+<div
+class="cart-items"
+id="cartItems"
+>
+
+<div class="empty">
+
+Your cart is empty.
+
+<br><br>
+
+Add some products!
+
+</div>
+
+</div>
+
+
+<div class="cart-bottom">
+
+
+<div class="total">
+
+<span>
+Total
+</span>
+
+<span id="total">
+₹0
+</span>
+
+</div>
+
+
+
+<!-- DELIVERY -->
+
+<div class="delivery-title">
+🚚 Delivery Option
+</div>
+
+
+<label class="delivery-option">
+
+<input
+type="radio"
+name="delivery"
+value="50"
+checked
+onchange="updateDelivery()"
+>
+
+<span>
+Standard Delivery — ₹50 (3–5 days)
+</span>
+
+</label>
+
+
+<label class="delivery-option">
+
+<input
+type="radio"
+name="delivery"
+value="100"
+onchange="updateDelivery()"
+>
+
+<span>
+Express Delivery — ₹100 (1–2 days)
+</span>
+
+</label>
+
+
+<label class="delivery-option">
+
+<input
+type="radio"
+name="delivery"
+value="0"
+onchange="updateDelivery()"
+>
+
+<span>
+🏠 Cash on Delivery — Free
+</span>
+
+</label>
+
+
+<div class="delivery-charge">
+
+<span>
+Delivery Charge
+</span>
+
+<span id="deliveryCharge">
+₹50
+</span>
+
+</div>
+
+
+
+<!-- CUSTOMER DETAILS -->
+
+<input
+class="order-input"
+id="name"
+placeholder="Your Name"
+>
+
+<input
+class="order-input"
+id="phone"
+placeholder="Phone Number"
+type="tel"
+>
+
+<input
+class="order-input"
+id="address"
+placeholder="Address"
+>
+
+
+
+<button
+class="order-button"
+onclick="sendOrder()"
+>
+Order on WhatsApp
+</button>
+
+
+<button
+class="payment-button"
+onclick="openPayment()"
+>
+💳 Pay Now
+</button>
+
+
+</div>
+
+</div>
+
+
+
+<!-- PAYMENT -->
+
+<div
+class="payment-modal"
+id="paymentModal"
+>
+
+<div class="payment-box">
+
+<h2>
+💳 Checkout
+</h2>
+
+<div
+class="payment-total"
+id="paymentTotal"
+>
+₹0
+</div>
+
+
+<button class="payment-option">
+📱 UPI
+</button>
+
+<button class="payment-option">
+💳 Debit / Credit Card
+</button>
+
+<button class="payment-option">
+🏦 Net Banking
+</button>
+
+
+<button
+class="demo-pay"
+onclick="demoPayment()"
+>
+Pay Now (Demo)
+</button>
+
+
+<button
+class="close-payment"
+onclick="closePayment()"
+>
+Cancel
+</button>
+
+</div>
+
+</div>
+
 
 
 <script>
 
 /* PRODUCTS */
 
-const products = {
+const products={
 
-  1:{
-    name:"Product 1",
-    price:1000,
-    image:"https://i.ibb.co/vWTQXbc/17861787951256754822744863288316.jpg"
-  },
+1:{
+name:"Product 1",
+price:1000,
+image:"https://i.ibb.co/vWTQXbc/17861787951256754822744863288316.jpg"
+},
 
-  2:{
-    name:"Product 2",
-    price:3000,
-    image:"https://i.ibb.co/G3Pk5qDJ/17861772841075608297092550658361.jpg"
-  },
+2:{
+name:"Product 2",
+price:3000,
+image:"https://i.ibb.co/G3Pk5qDJ/17861772841075608297092550658361.jpg"
+},
 
-  3:{
-    name:"Product 3",
-    price:5000,
-    image:"https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg"
-  }
+3:{
+name:"Product 3",
+price:5000,
+image:"https://i.ibb.co/vvrSYN20/17861774782557184980918293853364.jpg"
+}
 
 };
 
 
-/* CART */
+let cart={};
 
-let cart = {};
 
 
 /* ADD TO CART */
 
 function addToCart(id){
 
-  if(cart[id]){
-    cart[id]++;
-  }else{
-    cart[id]=1;
-  }
-
-  updateCart();
-
-  openCart();
+if(cart[id]){
+cart[id]++;
 }
+else{
+cart[id]=1;
+}
+
+updateCart();
+openCart();
+
+}
+
 
 
 /* CHANGE QUANTITY */
 
 function changeQuantity(id,change){
 
-  if(!cart[id]){
-    return;
-  }
-
-  cart[id] += change;
-
-  if(cart[id] <= 0){
-    delete cart[id];
-  }
-
-  updateCart();
+if(!cart[id]){
+return;
 }
+
+cart[id]+=change;
+
+if(cart[id]<=0){
+delete cart[id];
+}
+
+updateCart();
+
+}
+
+
+
+/* DELIVERY */
+
+function getDeliveryCharge(){
+
+const selected=
+document.querySelector(
+'input[name="delivery"]:checked'
+);
+
+return selected
+?Number(selected.value)
+:50;
+
+}
+
+
+function updateDelivery(){
+
+updateCart();
+
+}
+
 
 
 /* UPDATE CART */
 
 function updateCart(){
 
-  const cartItems =
-    document.getElementById("cartItems");
+const cartItems=
+document.getElementById("cartItems");
 
-  const totalElement =
-    document.getElementById("total");
+const totalElement=
+document.getElementById("total");
 
-  const topCount =
-    document.getElementById("topCount");
-
-
-  let total = 0;
-  let count = 0;
-
-  let html = "";
+const topCount=
+document.getElementById("topCount");
 
 
-  for(let id in cart){
-
-    const product = products[id];
-    const quantity = cart[id];
-
-    const itemTotal =
-      product.price * quantity;
-
-    total += itemTotal;
-    count += quantity;
+let total=0;
+let count=0;
+let html="";
 
 
-    html += `
+for(let id in cart){
 
-      <div class="cart-item">
+const product=products[id];
 
-        <img
-          src="${product.image}"
-          alt="${product.name}"
-        >
+const quantity=cart[id];
 
-        <div class="item-info">
+const itemTotal=
+product.price*quantity;
 
-          <div class="item-name">
-            ${product.name}
-          </div>
+total+=itemTotal;
 
-          <div class="item-price">
-            ₹${product.price} × ${quantity}
-          </div>
-
-          <div class="quantity">
-
-            <button
-              onclick="changeQuantity(${id},-1)"
-            >
-              −
-            </button>
-
-            <span>
-              ${quantity}
-            </span>
-
-            <button
-              onclick="changeQuantity(${id},1)"
-            >
-              +
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    `;
-  }
+count+=quantity;
 
 
-  if(count === 0){
+html+=`
 
-    html = `
+<div class="cart-item">
 
-      <div class="empty">
+<img
+src="${product.image}"
+alt="${product.name}"
+>
 
-        Your cart is empty.
+<div class="item-info">
 
-        <br><br>
+<div class="item-name">
+${product.name}
+</div>
 
-        Add some products!
+<div class="item-price">
+₹${product.price} × ${quantity}
+</div>
 
-      </div>
+<div class="quantity">
 
-    `;
+<button
+onclick="changeQuantity(${id},-1)"
+>
+−
+</button>
 
-    topCount.style.display="none";
+<span>
+${quantity}
+</span>
 
-  }else{
+<button
+onclick="changeQuantity(${id},1)"
+>
++
+</button>
 
-    topCount.style.display="flex";
-    topCount.textContent=count;
+</div>
 
-  }
+</div>
 
+</div>
 
-  cartItems.innerHTML = html;
-
-  totalElement.textContent =
-    "₹" + total;
+`;
 
 }
+
+
+if(count===0){
+
+html=`
+
+<div class="empty">
+
+Your cart is empty.
+
+<br><br>
+
+Add some products!
+
+</div>
+
+`;
+
+topCount.style.display="none";
+
+}
+else{
+
+topCount.style.display="flex";
+
+topCount.textContent=count;
+
+}
+
+
+cartItems.innerHTML=html;
+
+
+const delivery=
+getDeliveryCharge();
+
+
+totalElement.textContent=
+"₹"+(total+delivery);
+
+
+document.getElementById(
+"deliveryCharge"
+).textContent=
+"₹"+delivery;
+
+}
+
 
 
 /* OPEN CART */
 
 function openCart(){
 
-  document
-    .getElementById("cart")
-    .classList.add("show");
+document
+.getElementById("cart")
+.classList.add("show");
 
-  document
-    .getElementById("overlay")
-    .classList.add("show");
+document
+.getElementById("overlay")
+.classList.add("show");
 
 }
+
 
 
 /* CLOSE CART */
 
 function closeCart(){
 
-  document
-    .getElementById("cart")
-    .classList.remove("show");
+document
+.getElementById("cart")
+.classList.remove("show");
 
-  document
-    .getElementById("overlay")
-    .classList.remove("show");
+document
+.getElementById("overlay")
+.classList.remove("show");
 
 }
+
 
 
 /* WHATSAPP ORDER */
 
 function sendOrder(){
 
-  let items = "";
-
-  let total = 0;
-
-
-  for(let id in cart){
-
-    const product = products[id];
-
-    const quantity = cart[id];
-
-    const amount =
-      product.price * quantity;
-
-    total += amount;
+let items="";
+let total=0;
 
 
-    items +=
-      product.name +
-      " x " +
-      quantity +
-      " = ₹" +
-      amount +
-      "%0A";
+for(let id in cart){
 
-  }
+const product=products[id];
 
+const quantity=cart[id];
 
-  if(items === ""){
+const amount=
+product.price*quantity;
 
-    alert("Please add a product to cart first.");
-
-    return;
-
-  }
+total+=amount;
 
 
-  const name =
-    document.getElementById("name").value;
-
-  const phone =
-    document.getElementById("phone").value;
-
-  const address =
-    document.getElementById("address").value;
-
-
-  if(!name || !phone || !address){
-
-    alert("Please fill all delivery details.");
-
-    return;
-
-  }
-
-
-  const message =
-
-    "🛒 *The Nitin Shop Order*%0A%0A" +
-
-    "*Customer:* " +
-    name +
-    "%0A" +
-
-    "*Phone:* " +
-    phone +
-    "%0A" +
-
-    "*Address:* " +
-    address +
-    "%0A%0A" +
-
-    "*Products:*%0A" +
-
-    items +
-
-    "%0A*Total: ₹" +
-    total +
-    "*";
-
-
-  const whatsappURL =
-    "https://wa.me/918546068921?text=" +
-    message;
-
-
-  window.open(
-    whatsappURL,
-    "_blank"
-  );
+items+=
+product.name+
+" x "+
+quantity+
+" = ₹"+
+amount+
+"%0A";
 
 }
+
+
+if(items===""){
+
+alert(
+"Please add a product to cart first."
+);
+
+return;
+
+}
+
+
+const name=
+document.getElementById("name").value;
+
+const phone=
+document.getElementById("phone").value;
+
+const address=
+document.getElementById("address").value;
+
+
+if(!name||!phone||!address){
+
+alert(
+"Please fill all delivery details."
+);
+
+return;
+
+}
+
+
+const delivery=
+getDeliveryCharge();
+
+total+=delivery;
+
+
+const deliveryText=
+delivery===0
+?"Cash on Delivery — Free"
+:"Delivery Charge — ₹"+delivery;
+
+
+const message=
+
+"🛒 *The Nitin Shop Order*%0A%0A"+
+
+"*Customer:* "+
+name+
+"%0A"+
+
+"*Phone:* "+
+phone+
+"%0A"+
+
+"*Address:* "+
+address+
+"%0A%0A"+
+
+"*Products:*%0A"+
+items+
+
+"%0A*"+
+deliveryText+
+"*"+
+
+"%0A*Final Total: ₹"+
+total+
+"*";
+
+
+const whatsappURL=
+"https://wa.me/918546068921?text="+
+message;
+
+
+window.open(
+whatsappURL,
+"_blank"
+);
+
+}
+
+
+
+/* PAYMENT */
+
+function openPayment(){
+
+let total=0;
+
+
+for(let id in cart){
+
+total+=
+products[id].price*
+cart[id];
+
+}
+
+
+if(total===0){
+
+alert(
+"Please add a product to cart first."
+);
+
+return;
+
+}
+
+
+total+=
+getDeliveryCharge();
+
+
+document
+.getElementById("paymentTotal")
+.textContent=
+"₹"+total;
+
+
+document
+.getElementById("paymentModal")
+.classList.add("show");
+
+}
+
+
+function closePayment(){
+
+document
+.getElementById("paymentModal")
+.classList.remove("show");
+
+}
+
+
+function demoPayment(){
+
+alert(
+"Demo Payment Successful!\
+n\
+This is only a demo. No real money was charged."
+);
+
+closePayment();
+
+}
+
+
+/* INITIAL CART */
+
+updateCart();
 
 </script>
 
